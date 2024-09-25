@@ -8,7 +8,7 @@ Gure taldea bideoklub baten webgunea egin du.
 ## Taldekideak
 - **Eneko Aguirre**
 - **Abaran de Prado**
-- **Uriel Martínez**
+- **Uriel Martin**
 - **Liam Suárez**
 - **Oihan Torrontegi**
 
