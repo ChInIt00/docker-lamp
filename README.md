@@ -2,7 +2,7 @@
 
 ## Proiektuaren deskripzioa
 Informazio Sistemen Seguritatea Kudeatzeko Sistemak irakasgairen Web Sistema arloko proiektua.
-Gure taldea liburutegi baten webgunea egin du. 
+Gure taldea bideoklub baten webgunea egin du. 
 
 ## Taldekideak
 - **Eneko Aguirre**
