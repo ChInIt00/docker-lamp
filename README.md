@@ -9,7 +9,7 @@ Gure taldea bideoklub baten webgunea egin du.
 - **Eneko Aguirre**
 - **Abaran de Prado**
 - **Uriel Martin**
-- **Liam Suárez**
+- **Liam Suárez Costumero**
 - **Oihan Torrontegi**
 
 ## Docker-en hedatzeko argibideak
