@@ -28,13 +28,16 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `usuarios` (
-  `id_user` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,  -- Asegúrate de que esté en la definición
   `DNI` varchar(10) NOT NULL,
   `izen_abizenak` text NOT NULL,
   `telefonoa` int(9) NOT NULL,
   `jaiotze_data` date NOT NULL,
   `email` text NOT NULL,
-  `pasahitza` varchar(50) NOT NULL
+  `pasahitza` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_user`),  -- Define la clave primaria aquí
+  UNIQUE KEY `DNI` (`DNI`),
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -49,21 +52,6 @@ INSERT INTO `usuarios` (`id_user`, `DNI`, `izen_abizenak`, `telefonoa`, `jaiotze
 (4, '43218765D', 'Pepe Palotes', 630321987, '1995-03-05', 'pepe1234@example.com', 'pepe1234'),
 (5, '34567812E', 'Miguel Torres', 640789123, '1991-07-30', 'MykeTowers.23@example.com', 'EasyMoneyBaby23');
 
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_user`),
-  ADD UNIQUE KEY `DNI` (`DNI`),
-  ADD UNIQUE KEY `id_user` (`id_user`),
-  ADD UNIQUE KEY `email` (`email`) ;
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 -- --------------------------------------------------------
@@ -78,13 +66,14 @@ CREATE TABLE `pelikulak` (
   `zuzendaria` varchar(255) DEFAULT NULL,
   `estrenaldi_urtea` year DEFAULT NULL,
   `generoa` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)  -- Define la clave primaria aquí
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `peliculas`
+-- Volcado de datos para la tabla `pelikulak`
 --
 
-INSERT INTO `peliculas` (`id`, `izenburua`, `zuzendaria`, `estrenaldi_urtea`, `generoa`) VALUES
+INSERT INTO `pelikulak` (`id`, `izenburua`, `zuzendaria`, `estrenaldi_urtea`, `generoa`) VALUES
 (1, 'Inception', 'Christopher Nolan', 2010, 'Zientzia fikzioa'),
 (2, 'El Padrino', 'Francis Ford Coppola', 1972, 'Krimen'),
 (3, 'Pulp Fiction', 'Quentin Tarantino', 1994, 'Krimen'),
@@ -106,27 +95,7 @@ INSERT INTO `peliculas` (`id`, `izenburua`, `zuzendaria`, `estrenaldi_urtea`, `g
 (19, 'Los infiltrados', 'Martin Scorsese', 2006, 'Krimen'),
 (20, 'Interstellar', 'Christopher Nolan', 2014, 'Zientzia fikzioa');
 
---
--- Indices de la tabla `pelikulak`
---
-ALTER TABLE `pelikulak`
-  ADD PRIMARY KEY (`id`);
-
---
--- Auto increment para la tabla `pelikulak`
---
-ALTER TABLE `pelikulak`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
-
-
-
-
-
-
-
-
-
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
