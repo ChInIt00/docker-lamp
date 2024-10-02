@@ -11,7 +11,7 @@
     </header>
 
     <main>
-        <form id="register_form" action="register_process.php" method="POST">
+        <form id="register_form" action="/php/register_process.php" method="POST">
             <label for="DNI">DNI:</label>
             <input type="text" id="DNI" name="DNI" required>
 

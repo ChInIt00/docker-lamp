@@ -3,26 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Bideoklub</title>
+    <title>Mi Videoclub</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- Enlazamos el archivo CSS -->
 </head>
 <body>
     <header>
-        <h1>Bienvenido a Bideoklub</h1>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo Videoclub"> <!-- Logo del Videoclub -->
+            <h1>Bienvenido a Mi Videoclub</h1>
+        </div>
         <nav>
             <ul>
-                <li><a href="php/register.php">Registro</a></li>
-                <li><a href="php/login.php">Login</a></li>
-                <li><a href="php/items.php">Ver Películas</a></li>
+                <li><a href="/orriak/register.php">Registro</a></li>
+                <li><a href="/orriak/login.php">Login</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h2>¡Explora nuestra colección de películas!</h2>
+        <section class="hero">
+            <h2>Descubre las mejores películas</h2>
+            <p>Encuentra tu película favorita y disfruta desde casa.</p>
+        </section>
+
     </main>
 
     <footer>
-        <p>&copy; 2024 Bideoklub. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Mi Videoclub</p>
     </footer>
 </body>
 </html>

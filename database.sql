@@ -34,7 +34,7 @@ CREATE TABLE `usuarios` (
   `telefonoa` int(9) NOT NULL,
   `jaiotze_data` date NOT NULL,
   `email` text NOT NULL,
-  `pasahitza` varchar(50) NOT NULL,
+  `pasahitza` varchar(255) NOT NULL,
   PRIMARY KEY (`id_user`),  -- Define la clave primaria aquí
   UNIQUE KEY `DNI` (`DNI`),
   UNIQUE KEY `email` (`email`)
