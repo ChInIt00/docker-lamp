@@ -25,7 +25,7 @@ if (!isset($_SESSION['user_id'])) {
         <ul>
             <li><a href="modify_user.php">Modificar mis datos</a></li>
             <li><a href="add_item.php">Añadir una película</a></li>
-            <li><a href="view_movies.php">Ver todas las películas</a></li>
+            <li><a href="items.php">Ver todas las películas</a></li>
             <li><a href="/php/logout.php">Cerrar sesión</a></li>
         </ul>
     </main>
