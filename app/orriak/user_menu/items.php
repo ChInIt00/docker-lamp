@@ -23,27 +23,52 @@ if (!$query) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Películas - Bideoklub</title>
+    <link rel="stylesheet" href="../../css/styles.css"> <!-- Enlace a tu archivo CSS -->
 </head>
 <body>
     <header>
+        <div class="logo">
+            <a href="user_menu.php">
+                <img src="../../images/logo.png" alt="Logo Videoclub"> <!-- Logo del Videoclub -->
+            </a>
+        </div>
         <h1>Nuestras Películas</h1>
+        <nav>
+            <ul>
+                <li><a href="/php/logout.php">Cerrar sesión</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <?php
-        // Mostrar cada película
-        while ($row = mysqli_fetch_array($query)) {
-            echo "<div class='pelicula'>";
-            echo "<h3><a href='show_item.php?item={$row['id']}'>{$row['izenburua']}</a></h3>";
-            echo "<p>Director: {$row['zuzendaria']}</p>";
-            /*echo "<p>Año: {$row['estrenaldi_urtea']}</p>";
-            echo "<p>Género: {$row['generoa']}</p>";*/
-            echo "</div>";
-        }
-        ?>
-        <a href="add_item.php">Agregar Nueva Película</a>
-    </main>
-
+    <div class="hero">
+        <main>
+            <div class="table-container"> <!-- Contenedor para la tabla -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Año</th>
+                            <th>Género</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        // Mostrar cada película
+                        while ($row = mysqli_fetch_array($query)) {
+                            echo "<tr>";
+                            echo "<td><a href='show_item.php?item={$row['id']}'>{$row['izenburua']}</a></td>";
+                            echo "<td>{$row['estrenaldi_urtea']}</td>";
+                            echo "<td>{$row['generoa']}</td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+                <a href="add_item.php" class="btn">Agregar Nueva Película</a>
+            </div>
+        </main>
+    </div>
+    
     <footer>
         <p>&copy; 2024 Bideoklub. Todos los derechos reservados.</p>
     </footer>

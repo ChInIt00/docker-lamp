@@ -12,7 +12,8 @@ $item_id = $_GET['item'];
 $query = mysqli_query($conn, "DELETE FROM pelikulak WHERE id = '$item_id'");
 
 if ($query) {
-    echo "Película eliminada con éxito.";
+    //echo "Película eliminada con éxito.";
+    header("Location: items.php");
 } else {
     echo "Error al eliminar la película.";
 }

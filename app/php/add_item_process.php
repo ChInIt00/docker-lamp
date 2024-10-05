@@ -32,8 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$izenburua', '$zuzendaria', '$estrenaldi_urtea', '$generoa')";
 
     if (mysqli_query($conn, $sql)) {
-        echo "Película agregada exitosamente. <a href='view_movies.php'>Ver todas las películas</a><br>";
-        echo "<a href='../orriak/user_menu/user_menu.php'>Volver al menú del usuario</a>";
+        //echo "Película agregada exitosamente. <a href='view_movies.php'>Ver todas las películas</a><br>";
+        //echo "<a href='../orriak/user_menu/user_menu.php'>Volver al menú del usuario</a>";
+        header("Location: ../orriak/user_menu/show_item.php");
     } else {
         echo "Error al agregar la película: " . mysqli_error($conn);
     }

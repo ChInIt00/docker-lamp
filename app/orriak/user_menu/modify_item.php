@@ -20,12 +20,24 @@ $item = mysqli_fetch_array($query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modificar Película - Bideoklub</title>
+    <link rel="stylesheet" href="../../css/styles.css"> <!-- Enlace a tu archivo CSS -->
 </head>
 <body>
     <header>
+        <div class="logo">
+            <a href="user_menu.php">
+                <img src="../../images/logo.png" alt="Logo Videoclub"> <!-- Logo del Videoclub -->
+            </a>
+        </div>
         <h1>Modificar Película</h1>
+        <nav>
+            <ul>
+                <li><a href="/php/logout.php">Cerrar sesión</a></li>
+            </ul>
+        </nav>
     </header>
 
+    <div class="hero">
     <main>
         <form id="item_modify_form" action="../../php/modify_item_process.php?item=<?php echo $item_id; ?>" method="POST">
             <label for="izenburua">Título:</label>
@@ -43,6 +55,8 @@ $item = mysqli_fetch_array($query);
             <button type="submit" id="item_modify_submit">Modificar Película</button>
         </form>
     </main>
+    </div>
+    
 
     <footer>
         <p>&copy; 2024 Bideoklub. Todos los derechos reservados.</p>

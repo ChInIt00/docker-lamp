@@ -1,5 +1,4 @@
 <?php
-// Iniciar la sesión al principio del archivo
 session_start();
 include '../../php/db_connect.php'; // Ajustar la ruta correcta a la base de datos
 
@@ -18,39 +17,69 @@ $sql = "SELECT * FROM usuarios WHERE id_user='$id_user'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
-if ($row) {
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Procesar el formulario de modificación
-        $dni = mysqli_real_escape_string($conn, $_POST['dni']);
-        $nombre = mysqli_real_escape_string($conn, $_POST['nombre']);
-        $telefono = mysqli_real_escape_string($conn, $_POST['telefono']);
-        $fecha_nacimiento = mysqli_real_escape_string($conn, $_POST['fecha_nacimiento']);
-        $email = mysqli_real_escape_string($conn, $_POST['email']);
-
-        // Actualizar el usuario en la base de datos
-        $sql = "UPDATE usuarios SET DNI='$dni', izen_abizenak='$nombre', telefonoa='$telefono', jaiotze_data='$fecha_nacimiento', email='$email' WHERE id_user='$id_user'";
-
-        if (mysqli_query($conn, $sql)) {
-            echo "Usuario actualizado exitosamente.
-            <a href='user_menu.php'>Volver al menú del usuario</a>";
-        } else {
-            echo "Error actualizando usuario: " . mysqli_error($conn);
-        }
-    }
-
-    // Mostrar el formulario de modificación
-    echo "<h1>Modificar Usuario</h1>";
-    echo "<form method='post'>";
-    echo "DNI: <input type='text' name='dni' value='" . $row['DNI'] . "' required><br>";
-    echo "Nombre: <input type='text' name='nombre' value='" . $row['izen_abizenak'] . "' required><br>";
-    echo "Teléfono: <input type='text' name='telefono' value='" . $row['telefonoa'] . "' required><br>";
-    echo "Fecha de Nacimiento: <input type='date' name='fecha_nacimiento' value='" . $row['jaiotze_data'] . "' required><br>";
-    echo "Email: <input type='email' name='email' value='" . $row['email'] . "' required><br>";
-    echo "<button type='submit'>Actualizar</button>";
-    echo "</form>";
-} else {
-    echo "No se encontró el usuario.";
-}
-
-mysqli_close($conn);
 ?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Usuario</title>
+    <link rel="stylesheet" href="../../css/styles.css"> <!-- Enlace a tu archivo CSS -->
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="user_menu.php">
+                <img src="../../images/logo.png" alt="Logo Videoclub"> <!-- Logo del Videoclub -->
+            </a>
+        </div>
+        <h2>Modificar Usuario</h2>
+        <nav>
+            <ul>
+                <li><a href="/php/logout.php">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero"> 
+        <main>
+                <?php if ($row): ?>
+                    <form method="post" action="../ modify_user_process.php" class="modify-user-form"> <!-- Action apuntando a modify_user_process.php -->
+                        <input type="hidden" name="id_user" value="<?= $row['id_user']; ?>"> <!-- Para pasar el ID del usuario -->
+                        <div>
+                            <label for="dni">DNI:</label>
+                            <input type="text" name="dni" value="<?= $row['DNI']; ?>" required>
+                        </div>
+                        <div>
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" name="nombre" value="<?= $row['izen_abizenak']; ?>" required>
+                        </div>
+                        <div>
+                            <label for="telefono">Teléfono:</label>
+                            <input type="text" name="telefono" value="<?= $row['telefonoa']; ?>" required>
+                        </div>
+                        <div>
+                            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                            <input type="date" name="fecha_nacimiento" value="<?= $row['jaiotze_data']; ?>" required>
+                        </div>
+                        <div>
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" value="<?= $row['email']; ?>" required>
+                        </div>
+                        <button type="submit">Actualizar</button>
+                    </form>
+                <?php else: ?>
+                    <p>No se encontró el usuario.</p>
+                <?php endif; ?>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Videoclub. Todos los derechos reservados.</p>
+    </footer>
+
+    <?php mysqli_close($conn); ?>
+</body>
+</html>

@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="css/styles.css"> <!-- Enlazamos el archivo CSS -->
 </head>
 <body>
-    <header>
+<header>
         <div class="logo">
-            <img src="images/logo.png" alt="Logo Videoclub"> <!-- Logo del Videoclub -->
-            <h1>Bienvenido a Mi Videoclub</h1>
-        </div>
+        <a href="../index.php">
+            <img src="../images/logo.png" alt="Logo Videoclub"> <!-- Logo del Videoclub -->
+        </a>        </div>
+        <h1></h1>
         <nav>
             <ul>
-                <li><a href="/orriak/register.php">Registro</a></li>
-                <li><a href="/orriak/login.php">Login</a></li>
+                <li><a href="orriak/register.php">Registro</a></li>
+                <li><a href="orriak/login.php">Login</a></li>
             </ul>
         </nav>
     </header>
@@ -23,7 +24,6 @@
     <main>
         <section class="hero">
             <h2>Descubre las mejores películas</h2>
-            <p>Encuentra tu película favorita y disfruta desde casa.</p>
         </section>
 
     </main>
