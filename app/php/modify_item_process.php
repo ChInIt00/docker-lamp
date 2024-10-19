@@ -11,6 +11,11 @@ if (!isset($_SESSION['user_id'])) {
 // Obtener el ID del ítem (película) desde la URL
 $item_id = $_GET['item'];
 
+// Estructura HTML mínima para que funcione el JavaScript
+echo '<html><head>';
+echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+echo '</head><body>';
+
 // Verificar si se recibió el formulario por POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los datos del formulario
@@ -21,7 +26,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validar los datos (opcional, pero recomendable)
     if (empty($titulo) || empty($director) || empty($anio) || empty($genero)) {
-        echo "Todos los campos son obligatorios.";
+        echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Todos los campos son obligatorios.'
+                }).then(function() {
+                    window.history.back(); // Regresar a la página anterior
+                });
+              </script>";
         exit();
     }
 
@@ -31,12 +44,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             WHERE id='$item_id'";
 
     if (mysqli_query($conn, $sql)) {
-        echo "Película modificada exitosamente. <a href='../orriak/user_menu/show_item.php?item=$item_id'>Ver detalles</a>";
+        echo "<script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Éxito',
+                    text: 'Película modificada exitosamente.',
+                }).then(function() {
+                    window.location.href = '../orriak/user_menu/show_item.php?item=$item_id'; // Redirigir después de cerrar el pop-up
+                });
+              </script>";
     } else {
-        echo "Error al modificar la película: " . mysqli_error($conn);
+        echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Error al modificar la película: " . mysqli_error($conn) . "'
+                }).then(function() {
+                    window.history.back(); // Regresar a la página anterior
+                });
+              </script>";
     }
 }
 
 // Cerrar la conexión
 mysqli_close($conn);
+
+echo '</body></html>'; // Cerrar la estructura HTML
 ?>

@@ -45,7 +45,7 @@ $row = mysqli_fetch_assoc($result);
     <div class="hero"> 
         <main>
                 <?php if ($row): ?>
-                    <form method="post" action="../ modify_user_process.php" class="modify-user-form"> <!-- Action apuntando a modify_user_process.php -->
+                    <form method="post" action="../../php/modify_user_process.php" class="modify-user-form"> <!-- Action apuntando a modify_user_process.php -->
                         <input type="hidden" name="id_user" value="<?= $row['id_user']; ?>"> <!-- Para pasar el ID del usuario -->
                         <div>
                             <label for="dni">DNI:</label>

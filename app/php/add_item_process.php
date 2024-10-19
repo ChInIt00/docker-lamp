@@ -32,9 +32,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$izenburua', '$zuzendaria', '$estrenaldi_urtea', '$generoa')";
 
     if (mysqli_query($conn, $sql)) {
-        //echo "Película agregada exitosamente. <a href='view_movies.php'>Ver todas las películas</a><br>";
-        //echo "<a href='../orriak/user_menu/user_menu.php'>Volver al menú del usuario</a>";
-        header("Location: ../orriak/user_menu/show_item.php");
+        // Obtener el ID de la última película insertada
+        $last_id = mysqli_insert_id($conn);
+
+        // Redirigir a la página de mostrar la película con el ID
+        header("Location: ../orriak/user_menu/show_item.php?item=$last_id");
+        exit(); // Asegúrate de hacer exit después de header
     } else {
         echo "Error al agregar la película: " . mysqli_error($conn);
     }

@@ -1,4 +1,5 @@
 <?php
+session_start(); // Asegúrate de iniciar la sesión primero
 include 'db_connect.php'; // Incluir la conexión a la base de datos
 
 // Procesar el formulario de inicio de sesión
@@ -11,25 +12,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "SELECT * FROM usuarios WHERE email='$email'";
     $result = mysqli_query($conn, $sql);
 
+    // Estructura HTML mínima para que funcione el JavaScript
+    echo '<html><head>';
+    echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+    echo '</head><body>';
+
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         
         // Comparar la contraseña en texto plano
         if ($password === $row['pasahitza']) {
             // Iniciar sesión exitosa, guardar la sesión del usuario
-            session_start();
             $_SESSION['user_id'] = $row['id_user'];
             $_SESSION['nombre'] = $row['izen_abizenak'];
 
             // Redirigir al menú de usuario o página principal
-            header("Location: ../orriak/user_menu/user_menu.php");
-            exit();
+            echo "<script>
+                    window.location = '../orriak/user_menu/user_menu.php';
+                  </script>";
         } else {
-            echo "Contraseña incorrecta.";
+            // Mostrar alerta de contraseña incorrecta y redirigir a la página de inicio de sesión
+            echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Contraseña incorrecta',
+                        text: 'Por favor, verifica tu contraseña e inténtalo de nuevo.'
+                    }).then(function() {
+                        window.location = '../orriak/login.php'; 
+                    });
+                  </script>";
         }
     } else {
-        echo "No se encontró un usuario con ese email.";
+        // Mostrar alerta de usuario no encontrado y redirigir a la página de inicio de sesión
+        echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Usuario no encontrado',
+                    text: 'No se encontró un usuario con ese email. Verifica tu información.'
+                }).then(function() {
+                    window.location = '../orriak/login.php'; 
+                });
+              </script>";
     }
+
+    echo '</body></html>';
 }
 
 mysqli_close($conn);

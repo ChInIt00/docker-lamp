@@ -46,7 +46,9 @@ if (!$query) {
                 <table>
                     <thead>
                         <tr>
+                            <th>ID</th> <!-- Nueva columna para el ID -->
                             <th>Título</th>
+                            <th>Director</th> <!-- Nueva columna para el Director -->
                             <th>Año</th>
                             <th>Género</th>
                         </tr>
@@ -56,7 +58,9 @@ if (!$query) {
                         // Mostrar cada película
                         while ($row = mysqli_fetch_array($query)) {
                             echo "<tr>";
+                            echo "<td>{$row['id']}</td>"; // Mostrar el ID de la película
                             echo "<td><a href='show_item.php?item={$row['id']}'>{$row['izenburua']}</a></td>";
+                            echo "<td>{$row['zuzendaria']}</td>"; // Mostrar el director de la película
                             echo "<td>{$row['estrenaldi_urtea']}</td>";
                             echo "<td>{$row['generoa']}</td>";
                             echo "</tr>";

@@ -1,3 +1,5 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <?php
 include 'db_connect.php'; // Incluir la conexión a la base de datos
 
@@ -31,27 +33,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['pasahitza']);
 
+    // Estructura HTML mínima para que funcione el JavaScript
+    echo '<html><head>';
+    echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+    echo '</head><body>';
+
     // Validar el formato del DNI antes de continuar
     if (!validarDNI($dni)) {
-        echo "Error: El formato del DNI no es válido. Formato: 12345678-X <a href='/orriak/register.php'>Intentar de nuevo</a>";
+        echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error de validación',
+                    text: 'El formato del DNI no es válido. Formato: 12345678-X.',
+                    confirmButtonText: 'Intentar de nuevo'
+                }).then(function() {
+                        window.location = '../orriak/register.php'; 
+                });
+              </script>";
         exit();
     }
 
     // Validar el nombre (solo letras)
     if (!validarNombre($nombre)) {
-        echo "Error: El nombre solo debe contener letras. <a href='/orriak/register.php'>Intentar de nuevo</a>";
+        echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error de validación',
+                    text: 'El nombre solo debe contener letras.',
+                    confirmButtonText: 'Intentar de nuevo'
+                }).then(function() {
+                        window.location = '../orriak/register.php'; 
+                });
+              </script>";
         exit();
     }
 
     // Validar el teléfono (9 dígitos)
     if (!validarTelefono($telefono)) {
-        echo "Error: El número de teléfono debe tener 9 dígitos. <a href='/orriak/register.php'>Intentar de nuevo</a>";
+        echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error de validación',
+                    text: 'El número de teléfono debe tener 9 dígitos.',
+                    confirmButtonText: 'Intentar de nuevo'
+                }).then(function() {
+                        window.location = '../orriak/register.php'; 
+                });
+              </script>";
         exit();
     }
 
     // Validar el formato del email
     if (!validarEmail($email)) {
-        echo "Error: El formato del correo electrónico no es válido. <a href='/orriak/register.php'>Intentar de nuevo</a>";
+        echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error de validación',
+                    text: 'El formato del correo electrónico no es válido.',
+                    confirmButtonText: 'Intentar de nuevo'
+                }).then(function() {
+                        window.location = '../orriak/register.php'; 
+                });
+              </script>";
         exit();
     }
 
@@ -60,17 +103,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$dni', '$nombre', '$telefono', '$fecha_nacimiento', '$email', '$password')";
 
     if (mysqli_query($conn, $sql)) {
-        echo "Registro exitoso. <a href='/orriak/login.php'>Iniciar sesión</a>";
+        echo "<script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registro exitoso',
+                    text: '¡Te has registrado correctamente!',
+                    confirmButtonText: 'Iniciar sesión'
+                }).then(function() {
+                        window.location = '../orriak/login.php'; 
+                });
+              </script>";
     } else {
         // Verificar si el error es por duplicación del DNI (error 1062)
         if (mysqli_errno($conn) == 1062) {
-            echo "Error: El DNI '$dni' ya está registrado. <a href='/orriak/register.php'>Intentar de nuevo</a>";
+            echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error de registro',
+                        text: 'El DNI \"$dni\" ya está registrado.',
+                        confirmButtonText: 'Intentar de nuevo'
+                    }).then(function() {
+                        window.location = '../orriak/register.php'; 
+                    });
+                  </script>";
         } else {
-            echo "Error: " . mysqli_error($conn);
+            echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error de la base de datos',
+                        text: '" . mysqli_error($conn) . "',
+                        confirmButtonText: 'Intentar de nuevo'
+                    }).then(function() {
+                        window.location = '../orriak/register.php'; 
+                    });
+                  </script>";
         }
     }
+
+    echo '</body></html>';
 }
 
 mysqli_close($conn);
-
 ?>

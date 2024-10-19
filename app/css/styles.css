@@ -88,8 +88,8 @@ form {
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
     width: calc(100% - 20px); /* 100% del ancho menos un margen de 10% */
-    max-width: calc(400px + 10%); /* Ancho máximo aumentado en 10% */
-    height: calc(fit-content + 1000px); /* 100% de la altura menos un margen de 10% */
+    max-width: calc(600px + 10%); /* Ancho máximo aumentado en 10% */
+    height: calc(100% - 20px); /* 100% de la altura menos un margen de 10% */
     max-height: calc(80vh + 10%); /* Altura máxima aumentada en 10% de la vista */
     margin: 0 auto; /* Centra horizontalmente el formulario */
     text-align: left; /* Alineación de texto */
