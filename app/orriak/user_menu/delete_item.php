@@ -19,4 +19,4 @@ if ($query) {
 }
 ?>
 
-<a href="items.php">Volver a Películas</a>
+<a href="items.php">Filmeak Ikustera itzuli</a>

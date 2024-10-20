@@ -19,8 +19,8 @@ $item = mysqli_fetch_array($query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar Película - Bideoklub</title>
-    <link rel="stylesheet" href="../../css/styles.css"> <!-- Enlace a tu archivo CSS -->
+    <title>Filmea Aldatu - Bideoklub</title>
+    <link rel="stylesheet" href="../../css/styles.css"> <
 </head>
 <body>
     <header>
@@ -29,7 +29,7 @@ $item = mysqli_fetch_array($query);
                 <img src="../../images/logo.png" alt="Logo Videoclub"> <!-- Logo del Videoclub -->
             </a>
         </div>
-        <h1>Modificar Película</h1>
+        <h1>Filmea ALdatu</h1>
         <nav>
             <ul>
                 <li><a href="/php/logout.php">Cerrar sesión</a></li>
@@ -40,26 +40,26 @@ $item = mysqli_fetch_array($query);
     <div class="hero">
     <main>
         <form id="item_modify_form" action="../../php/modify_item_process.php?item=<?php echo $item_id; ?>" method="POST">
-            <label for="izenburua">Título:</label>
+            <label for="izenburua">Izenburua:</label>
             <input type="text" id="izenburua" name="izenburua" value="<?php echo $item['izenburua']; ?>" required>
 
-            <label for="zuzendaria">Director:</label>
+            <label for="zuzendaria">Zuzendaria:</label>
             <input type="text" id="zuzendaria" name="zuzendaria" value="<?php echo $item['zuzendaria']; ?>" required>
 
-            <label for="estrenaldi_urtea">Año:</label>
+            <label for="estrenaldi_urtea">Urtea:</label>
             <input type="text" id="estrenaldi_urtea" name="estrenaldi_urtea" value="<?php echo $item['estrenaldi_urtea']; ?>" required>
 
-            <label for="generoa">Género:</label>
+            <label for="generoa">Generoa:</label>
             <input type="text" id="generoa" name="generoa" value="<?php echo $item['generoa']; ?>" required>
 
-            <button type="submit" id="item_modify_submit">Modificar Película</button>
+            <button type="submit" id="item_modify_submit">Pelikula Aldatu</button>
         </form>
     </main>
     </div>
     
 
     <footer>
-        <p>&copy; 2024 Bideoklub. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Bideokluba.</p>
     </footer>
 </body>
 </html>

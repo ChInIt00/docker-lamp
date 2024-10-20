@@ -22,8 +22,8 @@ if (!$query) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Películas - Bideoklub</title>
-    <link rel="stylesheet" href="../../css/styles.css"> <!-- Enlace a tu archivo CSS -->
+    <title>Filmeak - Bideoklub</title>
+    <link rel="stylesheet" href="../../css/styles.css"> 
 </head>
 <body>
     <header>
@@ -32,10 +32,10 @@ if (!$query) {
                 <img src="../../images/logo.png" alt="Logo Videoclub"> <!-- Logo del Videoclub -->
             </a>
         </div>
-        <h1>Nuestras Películas</h1>
+        <h1>Gure Filmeak</h1>
         <nav>
             <ul>
-                <li><a href="/php/logout.php">Cerrar sesión</a></li>
+                <li><a href="/php/logout.php">Saioa Itxi</a></li>
             </ul>
         </nav>
     </header>
@@ -46,11 +46,11 @@ if (!$query) {
                 <table>
                     <thead>
                         <tr>
-                            <th>ID</th> <!-- Nueva columna para el ID -->
-                            <th>Título</th>
-                            <th>Director</th> <!-- Nueva columna para el Director -->
-                            <th>Año</th>
-                            <th>Género</th>
+                            <th>ID</th> 
+                            <th>Izenburua</th>
+                            <th>Zuzenendaria</th> 
+                            <th>Estrenaldi Urtea</th>
+                            <th>Generoa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,13 +68,13 @@ if (!$query) {
                         ?>
                     </tbody>
                 </table>
-                <a href="add_item.php" class="btn">Agregar Nueva Película</a>
+                <a href="add_item.php" class="btn">Film berria gehitu</a>
             </div>
         </main>
     </div>
     
     <footer>
-        <p>&copy; 2024 Bideoklub. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Bideokluba.</p>
     </footer>
 </body>
 </html>

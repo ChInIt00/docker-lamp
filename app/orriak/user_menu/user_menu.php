@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú del Usuario</title>
+    <title>Erabiltzailearen Menua</title>
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
@@ -23,21 +23,20 @@ if (!isset($_SESSION['user_id'])) {
                 <img src="../../images/logo.png" alt="Logo Videoclub"> <!-- Logo del Videoclub -->
             </a>
         </div>
-        <h2>Bienvenido, <?php echo $_SESSION['nombre']; ?></h2>
+        <h2>Ongi etorri, <?php echo $_SESSION['nombre']; ?></h2>
         <nav>
             <ul>
-                <li><a href="/php/logout.php">Cerrar sesión</a></li>
+                <li><a href="/php/logout.php">Saioa Itxi</a></li>
             </ul>
         </nav>
     </header>
     <div class="hero"> 
         <main>
-            <!--<h2>Opciones disponibles:</h2> -->
             <ul class="button-list"> <!-- Añadir una clase aquí -->
-                <li><a href="modify_user.php" class="button">Modificar mis datos</a></li>
-                <li><a href="add_item.php" class="button">Añadir una película</a></li>
-                <li><a href="items.php" class="button">Ver todas las películas</a></li>
-                <li><a href="/php/logout.php" class="button">Cerrar sesión</a></li>
+                <li><a href="modify_user.php" class="button">Nire datuak aldatu</a></li>
+                <li><a href="add_item.php" class="button">Film bat gehitu</a></li>
+                <li><a href="items.php" class="button">Film guztiak ikusi</a></li>
+                <li><a href="/php/logout.php" class="button">Saioa Itxi</a></li>
             </ul>
         </main>
     </div>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - Bideoklub</title>
-    <link rel="stylesheet" href="../css/styles.css"> <!-- Asegúrate de ajustar el path correctamente -->
+    <title>Erregistratu - Bideoklub</title>
+    <link rel="stylesheet" href="../css/styles.css"> 
 </head>
 <body>
     <header>
@@ -15,8 +15,8 @@
         <h1>Registro de Usuario</h1>
         <nav>
             <ul>
-                <li><a href="register.php">Registro</a></li>
-                <li><a href="login.php">Login</a></li>
+                <li><a href="register.php">Erregistratu</a></li>
+                <li><a href="login.php">Saioa Hasi</a></li>
             </ul>
         </nav>
     </header>
@@ -25,22 +25,22 @@
         <main>
             <form id="register_form" action="/php/register_process.php" method="POST">
                 <div>
-                    <label for="DNI">DNI:</label>
+                    <label for="DNI">NAN:</label>
                     <input type="text" id="DNI" name="DNI" placeholder="12345678-X" required>
                 </div>
 
                 <div>
-                    <label for="nombre">Nombre:</label>
+                    <label for="nombre">Izena:</label>
                     <input type="text" id="nombre" name="nombre" placeholder="Izena Abizena" required>
                 </div>
 
                 <div>
-                    <label for="telefonoa">Teléfono:</label>
+                    <label for="telefonoa">Telefonoa:</label>
                     <input type="text" id="telefonoa" name="telefonoa" placeholder="123456789" required>
                 </div>
 
                 <div>
-                    <label for="jaiotze_data">Fecha de Nacimiento:</label>
+                    <label for="jaiotze_data">Jaiotze Data:</label>
                     <input type="date" id="jaiotze_data" name="jaiotze_data" required>
                 </div>
 
@@ -50,11 +50,11 @@
                 </div>
 
                 <div>
-                    <label for="pasahitza">Contraseña:</label>
+                    <label for="pasahitza">Pasahitza:</label>
                     <input type="password" id="pasahitza" name="pasahitza" required>
                 </div>
 
-                <button type="submit" id="register_submit">Registrar</button>
+                <button type="submit" id="register_submit">Erregistratu</button>
             </form>
 
             <div id="error-message" style="color: red;"></div>
@@ -62,7 +62,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Bideoklub. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Bideokluba</p>
     </footer>
 </body>
 </html>

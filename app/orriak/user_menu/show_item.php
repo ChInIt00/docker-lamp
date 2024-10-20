@@ -18,11 +18,11 @@ $item = mysqli_fetch_array($query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostrar Película - Bideoklub</title>
+    <title>Filmea Ikusi - Bideoklub</title>
     <link rel="stylesheet" href="../../css/styles.css"> <!-- Enlace a tu archivo CSS -->
     <script>
         function confirmDelete() {
-            return confirm('¿Estás seguro de que deseas eliminar esta película? Esta acción no se puede deshacer.');
+            return confirm('Ziur zaude film hau ezabatu nahi duzula? Ekintza hau ezin da desegin.');
         }
     </script>
 </head>
@@ -33,10 +33,10 @@ $item = mysqli_fetch_array($query);
                 <img src="../../images/logo.png" alt="Logo Videoclub"> <!-- Logo del Videoclub -->
             </a>
         </div>
-        <h1>Información de la Película</h1>
+        <h1>Filmaren Informazioa</h1>
         <nav>
             <ul>
-                <li><a href="/php/logout.php">Cerrar sesión</a></li>
+                <li><a href="/php/logout.php">Saioa Itxi</a></li>
             </ul>
         </nav>
     </header>
@@ -45,9 +45,9 @@ $item = mysqli_fetch_array($query);
         <main>
             <div class="movie-info">
                 <h1><?php echo $item['izenburua']; ?></h>
-                <p>Director: <?php echo $item['zuzendaria']; ?></p>
-                <p>Año: <?php echo $item['estrenaldi_urtea']; ?></p>
-                <p>Género: <?php echo $item['generoa']; ?></p>
+                <p>Zuzendaria: <?php echo $item['zuzendaria']; ?></p>
+                <p>Estrenaldi Urtea: <?php echo $item['estrenaldi_urtea']; ?></p>
+                <p>Generoa: <?php echo $item['generoa']; ?></p>
             </div>
             
             <div class="button-container">
@@ -62,7 +62,7 @@ $item = mysqli_fetch_array($query);
     </div>
     
     <footer>
-        <p>&copy; 2024 Bideoklub. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Bideokluba.</p>
     </footer>
 </body>
 </html>

@@ -13,11 +13,11 @@
             <img src="../images/logo.png" alt="Logo Videoclub"> <!-- Logo del Videoclub -->
         </a>
         </div>
-        <h1>Iniciar Sesión</h1>
+        <h1>Saioa Hasi</h1>
         <nav>
             <ul>
-                <li><a href="register.php">Registro</a></li>
-                <li><a href="login.php">Login</a></li>
+                <li><a href="register.php">Erregistratu</a></li>
+                <li><a href="login.php">Saioa Hasi</a></li>
             </ul>
         </nav>
     </header>
@@ -29,16 +29,16 @@
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
 
-                <label for="pasahitza">Contraseña:</label>
+                <label for="pasahitza">Pasahitza:</label>
                 <input type="password" id="pasahitza" name="pasahitza" required>
 
-                <button type="submit" id="login_submit">Iniciar Sesión</button>
+                <button type="submit" id="login_submit">Saioa Hasi</button>
             </form>
         </main>
     </div>
     
     <footer>
-        <p>&copy; 2024 Bideoklub. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Bideokluba</p>
     </footer>
 </body>
 </html>
