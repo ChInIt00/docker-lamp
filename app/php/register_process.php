@@ -43,9 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>
                 Swal.fire({
                     icon: 'error',
-                    title: 'Error de validación',
-                    text: 'El formato del DNI no es válido. Formato: 12345678-X.',
-                    confirmButtonText: 'Intentar de nuevo'
+                    title: 'Baliozkotze-errorea',
+                    text: 'NANaren formatua ez da baliozkoa. Formatua: 12345678-X.',
+                    confirmButtonText: 'Barriro saiatu'
                 }).then(function() {
                         window.location = '../orriak/register.php'; 
                 });
@@ -58,9 +58,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>
                 Swal.fire({
                     icon: 'error',
-                    title: 'Error de validación',
-                    text: 'El nombre solo debe contener letras.',
-                    confirmButtonText: 'Intentar de nuevo'
+                    title: 'Baliozkotze-errorea',
+                    text: ' Izenak letrak baino ez ditu izan behar.',
+                    confirmButtonText: 'Barriro saiatu'
                 }).then(function() {
                         window.location = '../orriak/register.php'; 
                 });
@@ -73,9 +73,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>
                 Swal.fire({
                     icon: 'error',
-                    title: 'Error de validación',
-                    text: 'El número de teléfono debe tener 9 dígitos.',
-                    confirmButtonText: 'Intentar de nuevo'
+                    title: 'Baliozkotze-errorea',
+                    text: 'Telefono zenbakiak 9 digitu eduki behar ditu .',
+                    confirmButtonText: 'Barriro saiatu'
                 }).then(function() {
                         window.location = '../orriak/register.php'; 
                 });
@@ -88,9 +88,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>
                 Swal.fire({
                     icon: 'error',
-                    title: 'Error de validación',
-                    text: 'El formato del correo electrónico no es válido.',
-                    confirmButtonText: 'Intentar de nuevo'
+                    title: 'Baliozkotze-errorea',
+                    text: ' Posta elektronikoaren formatua ez da baliozkoa.',
+                    confirmButtonText: 'Barriro saiatu'
                 }).then(function() {
                         window.location = '../orriak/register.php'; 
                 });
@@ -106,9 +106,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>
                 Swal.fire({
                     icon: 'success',
-                    title: 'Registro exitoso',
-                    text: '¡Te has registrado correctamente!',
-                    confirmButtonText: 'Iniciar sesión'
+                    title: 'Erregistro arrakastatsua',
+                    text: 'Ondo erregistratu zara!',
+                    confirmButtonText: 'Saioa hasi'
                 }).then(function() {
                         window.location = '../orriak/login.php'; 
                 });
@@ -119,9 +119,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<script>
                     Swal.fire({
                         icon: 'error',
-                        title: 'Error de registro',
-                        text: 'El DNI \"$dni\" ya está registrado.',
-                        confirmButtonText: 'Intentar de nuevo'
+                        title: 'Erregistro-errorea',
+                        text: 'NAN-a: \"$dni\" erregistratuta dago.',
+                        confirmButtonText: 'Berriro saiatu'
                     }).then(function() {
                         window.location = '../orriak/register.php'; 
                     });
@@ -130,9 +130,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<script>
                     Swal.fire({
                         icon: 'error',
-                        title: 'Error de la base de datos',
+                        title: 'Datu-basearen errorea',
                         text: '" . mysqli_error($conn) . "',
-                        confirmButtonText: 'Intentar de nuevo'
+                        confirmButtonText: 'Barriro saiatu'
                     }).then(function() {
                         window.location = '../orriak/register.php'; 
                     });

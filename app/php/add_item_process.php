@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 
 // Verificar si la conexión es válida
 if (!$conn) {
-    die("Error de conexión: " . mysqli_connect_error());
+    die("Konexio errorea " . mysqli_connect_error());
 }
 
 // Verificar si el formulario fue enviado
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validar que los campos no estén vacíos
     if (empty($izenburua) || empty($zuzendaria) || empty($estrenaldi_urtea) || empty($generoa)) {
-        echo "Todos los campos son obligatorios.";
+        echo "Eremu guztiak derrigorrezkoak dira.";
         exit();
     }
 
@@ -39,12 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../orriak/user_menu/show_item.php?item=$last_id");
         exit(); // Asegúrate de hacer exit después de header
     } else {
-        echo "Error al agregar la película: " . mysqli_error($conn);
+        echo "Errorea pelikula gehitzerakoan: " . mysqli_error($conn);
     }
 
     // Cerrar la conexión a la base de datos
     mysqli_close($conn);
 } else {
-    echo "Método no permitido.";
+    echo "Metodo ez baimendua.";
 }
 ?>

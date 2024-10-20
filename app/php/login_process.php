@@ -35,8 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<script>
                     Swal.fire({
                         icon: 'error',
-                        title: 'Contraseña incorrecta',
-                        text: 'Por favor, verifica tu contraseña e inténtalo de nuevo.'
+                        title: 'Pasahitza ez da zuzena',
+                        text: 'Mesedez, egiaztatu zure pasahitza eta saiatu berriro.'
                     }).then(function() {
                         window.location = '../orriak/login.php'; 
                     });
@@ -47,8 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>
                 Swal.fire({
                     icon: 'error',
-                    title: 'Usuario no encontrado',
-                    text: 'No se encontró un usuario con ese email. Verifica tu información.'
+                    title: 'Erabiltzailea ez da aurkitu',
+                    text: 'Ez da aurkitu erabiltzailerik helbide elektroniko horrekin. Egiaztatu zure informazioa.'
                 }).then(function() {
                     window.location = '../orriak/login.php'; 
                 });

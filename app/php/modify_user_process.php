@@ -18,10 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //echo "Usuario actualizado exitosamente. <a href='show_user.php?user=$id_user'>Ver detalles</a>";
         header("Location: ../orriak/user_menu/user_menu.php?user=$id_user");
     } else {
-        echo "Error actualizando usuario: " . mysqli_error($conn);
+        echo "Errorea erabiltzailea eguneratzean: " . mysqli_error($conn);
     }
 } else {
-    echo "Método no permitido.";
+    echo "Metodo hori ez da onartzen";
 }
 
 mysqli_close($conn);

@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'Todos los campos son obligatorios.'
+                    text: 'Eremu guztiak derrigorrezkoak dira.'
                 }).then(function() {
                     window.history.back(); // Regresar a la página anterior
                 });
@@ -47,8 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>
                 Swal.fire({
                     icon: 'success',
-                    title: 'Éxito',
-                    text: 'Película modificada exitosamente.',
+                    title: 'Arrakasta',
+                    text: 'Pelikula arrakastaz aldatua.',
                 }).then(function() {
                     window.location.href = '../orriak/user_menu/show_item.php?item=$item_id'; // Redirigir después de cerrar el pop-up
                 });
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'Error al modificar la película: " . mysqli_error($conn) . "'
+                    text: 'Errorea pelikula aldatzean: " . mysqli_error($conn) . "'
                 }).then(function() {
                     window.history.back(); // Regresar a la página anterior
                 });

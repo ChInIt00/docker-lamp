@@ -10,6 +10,6 @@ $conn = mysqli_connect($hostname, $username, $password, $db);
 
 // Verificar la conexión
 if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+    die("Konexioak huts egin du: " . mysqli_connect_error());
 }
 ?>
